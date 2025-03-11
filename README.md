@@ -22,6 +22,7 @@ Converted the data into an SF object for spatial mapping.
 Created a map similar to the CSV approach with ggplot2 enhancements.
 
 ## Run it using
+source("easy/easy_using_csv.r")
 
 
 ### Data Sources
