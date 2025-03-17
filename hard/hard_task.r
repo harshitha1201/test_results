@@ -119,4 +119,4 @@ new_df <- df %>%
 
 new_df
 
-
+write.csv(new_df, "output.csv", row.names = FALSE)
