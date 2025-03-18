@@ -26,6 +26,8 @@ Generate a map displaying the spatial locations of sightings using two approache
 ```r
 source("easy/easy_using_csv.r")
 
+
+
 ## Medium Task
 
 ### Objective  
