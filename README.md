@@ -22,7 +22,7 @@ Generate a map displaying the spatial locations of sightings using two approache
 - **Mapping:**  Created a map similar to the CSV approach with **ggplot2** enhancements.
 
 
-# Medium Task
+# MEDIUM TASK
 
 ### Objective  
 
@@ -56,7 +56,47 @@ Perform **DBSCAN clustering** to identify hotspots and retrieve **weather data**
   - Retrieved 2024 weather data from the nearest available station.  
 - **Weather Summary**  
   - Extracted key parameters: **Temperature (TEMP), Sea Level Pressure (SLP), and Station Pressure (STP)**.  
-  - Saved the data to `station_data.csv`.  
+  - Saved the data to `station_data.csv`.
+
+## HARD TASK
+
+### Objective
+
+Geocode SA2 (Statistical Area Level 2) locations in Australia using OpenStreetMap (OSM) and OpenCage APIs.  
+Handle missing coordinates by refining location names and computing centroids for multi-region names.
+
+### What We Did
+
+#### **CSV-Based Approach**
+- **Data Reading:** Read trip data from `trip_data.csv` using **readr**, skipping the first 8 rows to remove unnecessary headers.
+- **Data Cleaning:** Selected only the SA2 column, removed duplicates, and renamed the column for consistency.
+- **Address Formatting:** Appended “Australia” to each location to ensure correct geocoding.
+- **Geocoding:** Used **tidygeocoder** with the OpenStreetMap (OSM) API to fetch latitude and longitude coordinates.
+- **Data Storage:** Saved geocoded results as `geocoded_trip_data.csv` for future use.
+- **Handling Missing Data:** Identified locations with missing coordinates and stored them separately.
+
+#### **Missing Data Handling**
+- **Data Extraction:** Extracted SA2 names with missing latitude/longitude from `geocoded_trip_data.csv`.
+- **Name Cleaning:** Fixed issues with `- East`, `- West`, `- North`, and `- South` suffixes to help OSM recognize locations.
+- **Suburb Expansion:** Split multi-region SA2 names into separate rows for geocoding.
+- **API-Based Geocoding:** Used the OpenCage API via **tidygeocoder** to fetch missing coordinates.
+- **Centroid Computation:** For multi-region names, computed centroids by averaging latitude/longitude values.
+
+#### **Final Data Processing**
+- **Filtering Valid Locations:** Removed rows with missing latitude/longitude.
+- **Merging Data:** Combined successfully geocoded locations from both OSM and OpenCage approaches.
+- **Column Reordering:** Ensured final data structure matched the original input.
+- **Saving Output:** Saved the final geocoded dataset as `output.csv`.
+
+---
+
+### **Final Output**
+| File Name                 | Description |
+|---------------------------|-------------|
+| `geocoded_trip_data.csv`  | Initial geocoded results from OSM |
+| `output.csv`              | Final dataset with fixed missing coordinates and centroids |
+
+
 
 
 
