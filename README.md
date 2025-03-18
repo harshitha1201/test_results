@@ -94,7 +94,6 @@ Handle missing coordinates by refining location names and computing centroids fo
 | File Name                 | Description |
 |---------------------------|-------------|
 | `geocoded_trip_data.csv`  | Initial geocoded results from OSM |
-| `output.csv`              | Final dataset with fixed missing coordinates and centroids |
 
 
 
