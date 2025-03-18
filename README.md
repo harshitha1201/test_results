@@ -58,12 +58,6 @@ Perform **DBSCAN clustering** to identify hotspots and retrieve **weather data**
   - Extracted key parameters: **Temperature (TEMP), Sea Level Pressure (SLP), and Station Pressure (STP)**.  
   - Saved the data to `station_data.csv`.  
 
-### Dependencies  
 
-Ensure the following R packages are installed:  
 
-```r
-install.packages(c("galah", "GSODR", "geosphere", "MASS", "dplyr", "ggplot2", 
-                   "ggthemes", "viridis", "sf", "dbscan", "rnaturalearth", 
-                   "rnaturalearthdata"))
 
